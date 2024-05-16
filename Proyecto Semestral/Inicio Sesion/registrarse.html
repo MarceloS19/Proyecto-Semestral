@@ -4,71 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Estilos/styleiniciosesion.css">
-    <script integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    
-    <title>Registro</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
     <script>
-        /* expresion regular para ocupar al validar el mail*/
-         var expr = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        /* declaramos el evento en funcion directa*/
-         $(document).ready(function(){
-            /* funcion click boton enviar*/
+        var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+.[a-zA-Z0-9\-\.]+$/;
+        const contra = /^(?=.*\d)(?=.*[a-z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+        $(document).ready(function(){
             $("#bEnviar").click(function(){
-                /*variables*/
-                var nombre = $("#itNombre").val(); /* funcion Val permite obtener el valor de caja de texto*/
-                var correo = $("#itMail").val();   /* funcion Val permite obtener el valor de caja de texto*/
-                var asunto = $("#itAsunto").val();  /* funcion Val permite obtener el valor de caja de texto*/
-            /* valido campo de texto nombre que no este vacio */
-                if(nombre == " "){
-    
-                    $("#mensaje1").fadeIn();        /* funcion levanta animaciones */
-            /* retorno falso para que cuando click no envie el formulario*/        
-                    return false;                
-                } else {
-            /* oculta mensaje */
-                    $("#mensaje1").fadeOut();        /* funcion baja animaciones */
-                    /* punto test es propio de JS y sirva para comparar contra la expresion regular*/
-                    if(correo == "" || !expr.test(correo)){
-                        $("#mensaje2").fadeIn();     /* funcion levanta animaciones */
+                var usuario = $("#itUsuario").val();
+                var email = $("#itEmail").val();
+                var contraseña = $("#itContraseña").val();
+
+                if(usuario == ""){
+                    $("#mensaje1").fadeIn();
+                    return false;
+                }
+                else{
+                    $("#mensaje1").fadeOut;
+                    if(email == "" || !expr.test(email)){
+                        $("#mensaje2").fadeIn();
                         return false;
-                    }else{
-                        $("#mensaje2").fadeOut();    /* funcion baja animaciones */
-                        if(asunto == ""){
-                            $("#mensaje3").fadeIn(); /* funcion levanta animaciones */
-                            return false;         
+                    } 
+                    else{
+                        $("#mensaje2").fadeOut();
+                        if(contraseña == "" || contra.test(contraseña)){
+                            $("#mensaje3").fadeIn();
+                            return false;
+                        }
+                        else{
+                            $("#mensaje3").fadeOut();
+                            return false;
                         }
                     }
-                 }
-            });
-    
-         });
-    
-    
-    </script>
-</head>
-<body>
+                }
+            })
+        })
 
+    </script>
+
+
+    <title>Registro</title>
+</head>
+<body> 
+    
     <div class="abs-center">
-        <form class="form" action="?" method="POST">
-            <h1>Registrarse</h1>
+        <form class="form">
+            <h1 class="h1">Registro</h1>
             <br>
-            <label>Nombre Completo</label><br>
-            <input type="text" id="itNombre" class="campo"><br>
-            <div id="mensaje1" class="errores">Ingresa tu nombre</div>
+            <label>Nombre de usuario</label><br>
+            <input type="text" id="itUsuario" class="campo"><br>
+            <div id="mensaje1" class="errores">Ingresa tu usuario</div>
 
             <label>Correo</label><br>
             <input type="email" id="itEmail" class="campo"><br>
             <div id="mensaje2" class="errores">Ingresa tu Correo</div>
 
             <label>Contraseña</label><br>
-            <input type="text" id="itAsunto" class="campo"><br>
-            <div id="mensaje3" class="errores">Ingresa tu asunto</div>
-
-                <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-                <br>
+            <input type="text" id="itContraseña" class="campo"><br>
+            <div id="mensaje3" class="errores">Ingresa tu contraseña</div>
+            <hr><br><center>
             <input type="submit" id="bEnviar" value="Enviar Datos" class="boton">
-        </form>
-    </div>
+            </center>
+            </form>
+        </div>
 
 </body>
 </html>
