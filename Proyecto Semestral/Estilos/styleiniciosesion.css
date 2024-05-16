@@ -5,7 +5,7 @@
 }
 
 #body{
-    background-color: rgb(34, 175, 223);
+    background-color: rgb(30, 153, 194);
 }
 
 .abs-center{
@@ -49,8 +49,8 @@
     color: #FFFFFF;
     display: none;
     font-size: 14px;
-    margin-top: -120px;
-    margin-left: 105px;
+    margin-top: -75px;
+    margin-left: 410px;
     padding: 10px;
     position: absolute;
     border-radius: 10px;

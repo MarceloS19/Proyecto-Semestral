@@ -11,7 +11,8 @@
     <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
     <script>
         
-
+       
+        
 
         var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+.[a-zA-Z0-9\-\.]+$/;
         const contra = /^(?=.*\d)(?=.*[a-z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
@@ -52,8 +53,8 @@
 
     <title>Registro</title>
 </head>
-<body id="body">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav">
+<body class="body">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
         <div class="container-fluid">
           <a class="navbar-brand" href="../index.html">Inicio</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,22 +93,51 @@
             
             <br>
             <label>Nombre de usuario</label><br>
-            <input type="text" id="itUsuario" class="campo"><br>
+            <input type="text" id="itUsuario" class="campo" placeholder="Ej: user1934"><br>
             <div id="mensaje1" class="errores">Ingresa tu usuario</div>
 
             <label>Correo</label><br>
-            <input type="email" id="itEmail" class="campo"><br>
+            <input type="email" id="itEmail" class="campo" placeholder="Ej: user@email.com"><br>
             <div id="mensaje2" class="errores">Ingresa tu Correo</div>
 
             <label>Contraseña</label><br>
-            <input type="text" id="itContraseña" class="campo"><br>
+            <input type="password" id="itContraseña" class="campo"><br>
             <div id="mensaje3" class="errores">Ingresa tu contraseña</div>
-            <hr><br> <center>
+            <hr><br> 
+            <center>
             <div class="g-recaptcha" data-sitekey="6LfsRt4pAAAAAEMI3oYX2WleCM-sTOvMpbkkG0nJ"></div>
+            <br>
             <input type="submit" id="bEnviar" value="Enviar Datos" class="boton">
             </center>
             </form>
         </div>
+
+        <script type="text/javascript">
+          emailjs.init('AO_EyJ8DtzMMl3kG2')
+        </script>
+
+        <script>
+          const btn = document.getElementById("bEnviar");
+
+          document.getElementById('form')
+          .addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            btn.value = 'Sending...';
+
+            const serviceID = 'default_service';
+            const templateID = 'template_pj77n77';
+
+            emailjs.sendForm(serviceID, templateID, this)
+              .then(() => {
+                btn.value = 'Send Email';
+                alert('Sent!');
+              }, (err) => {
+                btn.value = 'Send Email';
+                alert(JSON.stringify(err));
+              });
+          });
+        </script>
 
 </body>
 </html>
