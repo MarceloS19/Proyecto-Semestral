@@ -16,8 +16,8 @@
 }
 
 .form{
-    width: 400px;
-    background-color: #4169E1;
+    width: 500px;
+    background-color: #333;
     padding: 50px;
     border-radius: 20px;
     margin-top: 10px;
@@ -25,15 +25,16 @@
 }
 
 .campo{
-    border: solid 2px #000000;
+    border: solid 1px #000000;
     font-size: 18px;
     padding: 10px;
     margin-bottom: 35px;
     width: 300px;
+    height: 40px;
 }
 
 .boton{
-    background: #192F60;
+    background: #198;
     border: solid 0;
     color: #FFFFFF;
     padding: 10px;
@@ -44,7 +45,7 @@
 }
 
 .errores{
-    background: #4682B4;
+    background: #008cff;
     color: #FFFFFF;
     display: none;
     font-size: 14px;
@@ -53,12 +54,12 @@
     padding: 10px;
     position: absolute;
     border-radius: 10px;
-    border: solid 2px #000000;
+    
 }
 
 .h1{
     text-align: center;
-    border: solid 4px #000000;
+    border: solid 1px #000000;
     background: #4682B4;
     color: white;
     text-align: center;
