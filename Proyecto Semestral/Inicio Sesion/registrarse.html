@@ -3,68 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Estilos/styleiniciosesion.css   ">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
-    <title>Inicio Sesión</title>
+    <link rel="stylesheet" href="../Estilos/styleiniciosesion.css">
+    <script
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+    
+    <title>Registro</title>
+    <script>
+        /* expresion regular para ocupar al validar el mail*/
+         var expr = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        /* declaramos el evento en funcion directa*/
+         $(document).ready(function(){
+            /* funcion click boton enviar*/
+            $("#bEnviar").click(function(){
+                /*variables*/
+                var nombre = $("#itNombre").val(); /* funcion Val permite obtener el valor de caja de texto*/
+                var correo = $("#itMail").val();   /* funcion Val permite obtener el valor de caja de texto*/
+                var asunto = $("#itAsunto").val();  /* funcion Val permite obtener el valor de caja de texto*/
+            /* valido campo de texto nombre que no este vacio */
+                if(nombre == " "){
+    
+                    $("#mensaje1").fadeIn();        /* funcion levanta animaciones */
+            /* retorno falso para que cuando click no envie el formulario*/        
+                    return false;                
+                } else {
+            /* oculta mensaje */
+                    $("#mensaje1").fadeOut();        /* funcion baja animaciones */
+                    /* punto test es propio de JS y sirva para comparar contra la expresion regular*/
+                    if(correo == "" || !expr.test(correo)){
+                        $("#mensaje2").fadeIn();     /* funcion levanta animaciones */
+                        return false;
+                    }else{
+                        $("#mensaje2").fadeOut();    /* funcion baja animaciones */
+                        if(asunto == ""){
+                            $("#mensaje3").fadeIn(); /* funcion levanta animaciones */
+                            return false;         
+                        }
+                    }
+                 }
+            });
+    
+         });
+    
+    
+    </script>
 </head>
-
-<body id="body">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="../index.html">Inicio</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active"  aria-current="page" href="Brownies/BrowniesTodos.html">Brownies</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="Nosotros.html">Nosotros</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Inicio sesión
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="Inicio Sesion/iniciosesion.html">Iniciar Sesión</a></li>
-                      <li><a class="dropdown-item" href="Inicio Sesion/registrarse.html">Registrarse</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+<body>
 
     <div class="abs-center">
-    <form id="form" class="form">
-        <div class="field">
-          <h1>REGISTRARSE</h1>
-          <div class="field">
-            <label for="nombre">Nombres</label>
-            <input type="text" name="contra" id="nombre" class="campo">
-          </div>
-          <div class="field">
-            <label for="nombre">Apellidos</label>
-            <input type="text" name="contra" id="apellidos" class="campo">
-          </div>
-          <label for="nombre">Nombre de Usuario</label>
-          <input type="text" name="nombre" id="nombre" class="campo">
-        </div>
-        <div class="field">
-          <label for="contra">Contraseña</label>
-          <input type="password" name="contra" id="contra" class="campo">
-        </div>
+        <form class="form">
+            <h1>Registrarse</h1>
+            <br>
+            <label>Nombre Completo</label><br>
+            <input type="text" id="itNombre" class="campo"><br>
+            <div id="mensaje1" class="errores">Ingresa tu nombre</div>
 
-      
-        <input type="submit" id="button" value="Send Email" class="boton">
-      </form>
+            <label>Correo</label><br>
+            <input type="email" id="itEmail" class="campo"><br>
+            <div id="mensaje2" class="errores">Ingresa tu Correo</div>
+
+            <label>Contraseña</label><br>
+            <input type="text" id="itAsunto" class="campo"><br>
+            <div id="mensaje3" class="errores">Ingresa tu asunto</div>
+            
+            <input type="submit" id="bEnviar" value="Enviar Datos" class="boton">
+        </form>
     </div>
-      
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    
 </body>
 </html>
