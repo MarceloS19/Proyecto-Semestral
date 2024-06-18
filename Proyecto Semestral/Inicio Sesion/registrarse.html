@@ -54,33 +54,43 @@
     <title>Registro</title>
 </head>
 <body class="body">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="../index.html">Inicio</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active"  aria-current="page" href="../Brownies/BrowniesTodos.html">Brownies</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../Nosotros.html">Nosotros</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Inicio sesión
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="../Inicio Sesion/iniciosesion.html">Iniciar Sesión</a></li>
-                  <li><a class="dropdown-item" href="../Inicio Sesion/registrarse.html">Registrarse</a></li>
-                </ul>
-              </li>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Inicio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active"  aria-current="page" href="Brownies/BrowniesTodos.html">Brownies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="Nosotros.html">Nosotros</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="Contacto.html">Contacto</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cuenta
+            </a>
+            <ul class="dropdown-menu active">
+              <li><a class="dropdown-item" href="Inicio Sesion/iniciosesion.html">Iniciar Sesión</a></li>
+              <li><a class="dropdown-item" href="Inicio Sesion/registrarse.html">Registrarse</a></li>
             </ul>
+          </li>
+          <div class="white">
+            <center>
+            <h2>Brownie de Mia</h2>
+          </center>
           </div>
-        </div>
-      </nav>
+        </ul>
+      </div>
+    </div>
+  </nav>
     
     <div class="abs-center">
         <form class="form" method="POST" action="?">
@@ -107,7 +117,8 @@
             <center>
             <div class="g-recaptcha" data-sitekey="6LfsRt4pAAAAAEMI3oYX2WleCM-sTOvMpbkkG0nJ"></div>
             <br>
-            <a href="iniciosesion.html"><button type="button" id="bEnviar" class="btn btn-success">Registrarse</button></a>
+            <a href="registrarse.html"><button type="button" id="bEnviar" class="btn btn-success">Registrarse</button></a>
+            <a href="iniciosesion.html"><button type="button" id="bEnviar" class="btn btn-success">Iniciar Sesion</button></a>
             </center>
             </form>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
